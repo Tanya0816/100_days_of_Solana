@@ -19,6 +19,7 @@ The transaction lifecycle is -
 Sending transaction from terminal using commands-
 
 solana config set -ud
+solana config get
 solana airdrop 2
 solana-keygen new --outfile ~/recipient-keypair.json --no-bip39-passphrase  
 solana transfer <public key> amount --allow-unfunded-recipient

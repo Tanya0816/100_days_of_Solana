@@ -1,0 +1,16 @@
+{
+  "name": "day-17_sol-transfer-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@solana-program/system": "^0.12.2",
+    "@solana/kit": "^6.9.0"
+  }
+}
