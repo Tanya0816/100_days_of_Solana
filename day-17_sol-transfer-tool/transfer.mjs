@@ -22,12 +22,12 @@ import { getTransferSolInstruction } from "@solana-program/system";
 // --  Configuration --
 const RPC_URL = devnet("https://api.devnet.solana.com");
 const WS_URL = devnet("wss://api.devnet.solana.com");
-const LAMPORTS_PER_SOL = 1_000_000_000;
+const LAMPORTS_PER_SOL = 1_000_000_000n;
 
 //Parse command-line arguments
 const args = process.argv.slice(2);
 if (args.length < 2) {
-    console.error("Usage: node transafer.mjs CXUmMwR5GVaP1HY5N69RNRsko8XxaMiDxMmgyAQsaxT 0.2");
+    console.error("Usage: node transfer.mjs DX86qNXXZrEd7nyJi1NKBUS9MUCKDRG5CXzCNNJeLr8k 0.2");
     process.exit(1);
 }
 
@@ -42,9 +42,9 @@ if (isNaN(solAmount) || solAmount <= 0) {
 const transferLamports = lamports(BigInt(Math.round(solAmount * Number(LAMPORTS_PER_SOL))));
 
 //load your keypair from the default solana cli location ----
-async function laodKeypair() {
+async function loadKeypair() {
     const keypairPath = resolve(homedir(), ".config", "solana", "id.json");
-    const secretKeyJson = await readFile(keypairPath, "uth-8");
+    const secretKeyJson = await readFile(keypairPath, "utf-8");
     const secretKeyBytes = new Uint8Array(JSON.parse(secretKeyJson));
     const keyPair = await createKeyPairSignerFromBytes(secretKeyBytes);
     return keyPair;
@@ -61,7 +61,7 @@ async function main() {
     console.log("Connected to Solana devnet. \n");
 
     //2. Load the sender keypair
-    const sender = await laodKeypair();
+    const sender = await loadKeypair();
     console.log("Sender:", sender.address);
     console.log("Recipient:", recipientAddress.toString());
     console.log("Amount:", solAmount, "SOL\n");
