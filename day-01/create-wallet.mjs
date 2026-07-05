@@ -1,4 +1,4 @@
-import { generateKeyPairSigner, createSolanaRpc, address } from "@solana/kit";
+import { generateKeyPairSigner, createSolanaRpc, address, devnet } from "@solana/kit";
 
 // generate a brand new kaypair
 const rpc = createSolanaRpc("https://api.devnet.solana.com");

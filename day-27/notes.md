@@ -5,7 +5,7 @@ This the summary of all those important concepts about account every Solana begi
 
 Solana does not uses any mempool to store transactions when they are being processed. Instead, transaction are stored in a block and marked as successfully executed while they are being parallely processed. This helps in handling large number of trnasactions in lightening speed.
 
-Accounts are used to store data while programs are used to store executabl code (Like smart contract in EVM).
+Accounts are used to store data while programs are used to store executable code (Like smart contract in EVM).
 
 In Solana, there are more than one accoutns each with different purposes and significance. 
 The System Program : It uses owner account address which is a string of 1's. For every system , the owner address is same. However this does not means that anyone can exploit the transaction or the account.
